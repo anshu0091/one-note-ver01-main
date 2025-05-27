@@ -28,5 +28,6 @@
 [functions]
   directory = "backend"
   node_bundler = "esbuild"
-  external_node_modules = ["mongoose"]
-  format = "esm" 
+
+[functions.format]
+  external_node_modules = ["mongoose"] 
