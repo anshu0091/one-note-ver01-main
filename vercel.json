@@ -1,21 +1,17 @@
 {
   "version": 2,
-  "framework": "create-react-app",
+  "buildCommand": "node build.js",
   "builds": [
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build",
-        "buildCommand": "cd frontend && npm install --force && npm run build"
+        "distDir": "build"
       }
     },
     {
       "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "buildCommand": "cd backend && npm install --force"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
