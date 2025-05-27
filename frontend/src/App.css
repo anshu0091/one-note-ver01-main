@@ -1,5 +1,12 @@
-/* Override Bootstrap's deprecated color-adjust property */
-.custom-control {
+/* Override Bootstrap's print color adjust property */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Override Bootstrap's specific print color adjust properties */
+.custom-control,
+.custom-control * {
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
 }
