@@ -17,7 +17,15 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
+  (error) => Promise.reject(error)
+);
+
+// Add a response interceptor for error handling
+api.interceptors.response.use(
+  response => response,
+  error => {
+    console.error('API error:', error);
+    // Optionally, show a user-friendly error message here
     return Promise.reject(error);
   }
 );

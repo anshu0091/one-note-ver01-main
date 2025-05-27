@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainScreen from "../../components/MainScreen";
-import axios from "axios";
+import api from '../../services/api';
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNoteAction, updateNoteAction } from "../../actions/notesActions";
@@ -31,7 +31,7 @@ function SingleNote({ match, history }) {
 
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axios.get(`/api/notes/${match.params.id}`);
+      const { data } = await api.get(`/notes/${match.params.id}`);
 
       setTitle(data.title);
       setContent(data.content);

@@ -10,8 +10,8 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
 } from "../constants/userConstants";
-import axios from "axios";
-import config from "../config";
+import api from '../services/api';
+import config from '../config';
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -23,7 +23,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
+    const { data } = await api.post(
       `${config.apiUrl}/users/login`,
       { email, password },
       axiosConfig
@@ -58,7 +58,7 @@ export const register = (name, email, password, pic) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
+    const { data } = await api.post(
       `${config.apiUrl}/users`,
       { name, pic, email, password },
       axiosConfig
@@ -95,7 +95,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${config.apiUrl}/users/profile`, user, axiosConfig);
+    const { data } = await api.post(`${config.apiUrl}/users/profile`, user, axiosConfig);
 
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
 
