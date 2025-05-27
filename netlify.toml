@@ -1,10 +1,11 @@
 [build]
   base = "."
   publish = "frontend/build"
-  command = "cd frontend && npm install && npm run build"
+  command = "npm install --prefix frontend && npm run build --prefix frontend"
 
 [build.environment]
   CI = "false"
+  NODE_VERSION = "18"
 
 # Frontend routes
 [[redirects]]
