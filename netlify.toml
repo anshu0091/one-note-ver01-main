@@ -1,7 +1,7 @@
 [build]
   base = "."
   publish = "frontend/build"
-  command = "npm install --prefix frontend && npm run build --prefix frontend"
+  command = "npm install -g cross-env && cd frontend && npm install && npm run build"
 
 [build.environment]
   CI = "false"
