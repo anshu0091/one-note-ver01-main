@@ -1,5 +1,5 @@
 //Connection file to mongo db
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 import colors from "colors";
 import dotenv from "dotenv";
 import path from "path";
@@ -33,4 +33,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+export default connectDB;
