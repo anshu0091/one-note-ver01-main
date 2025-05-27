@@ -13,6 +13,7 @@ import {
   NOTES_UPDATE_SUCCESS,
 } from "../constants/notesConstants";
 import axios from "axios";
+import config from "../config";
 
 export const listNotes = () => async (dispatch, getState) => {
   try {
