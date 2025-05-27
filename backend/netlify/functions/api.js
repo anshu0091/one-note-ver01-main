@@ -25,7 +25,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -34,7 +34,11 @@ mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ 
+    status: 'ok',
+    env: process.env.NODE_ENV,
+    mongoConnected: mongoose.connection.readyState === 1
+  });
 });
 
 // Export the serverless handler
