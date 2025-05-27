@@ -2,15 +2,17 @@ const express = require('express');
 const serverless = require('serverless-http');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const app = express();
+const path = require('path');
 
-// Import your routes
-const authRoutes = require('../routes/auth');
-const noteRoutes = require('../routes/notes');
+const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Import routes
+const authRoutes = require('../routes/auth');
+const noteRoutes = require('../routes/notes');
 
 // Routes
 app.use('/api/auth', authRoutes);
