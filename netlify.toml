@@ -1,0 +1,29 @@
+[build]
+  base = "."
+  publish = "frontend/build"
+  command = "cd frontend && npm install && npm run build"
+
+[build.environment]
+  CI = "false"
+
+# Frontend routes
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Backend API routes
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# Catch-all for frontend routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "backend"
+  node_bundler = "esbuild" 
