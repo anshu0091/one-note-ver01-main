@@ -6,14 +6,14 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "build",
-        "buildCommand": "cd frontend && npm install && npm run build"
+        "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build"
       }
     },
     {
       "src": "backend/server.js",
       "use": "@vercel/node",
       "config": {
-        "buildCommand": "cd backend && npm install"
+        "buildCommand": "cd backend && npm install --legacy-peer-deps"
       }
     }
   ],
