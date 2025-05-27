@@ -16,5 +16,27 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "src": "frontend/package.json",
+  "use": "@vercel/static-build",
+  "config": {
+    "distDir": "build",
+    "buildCommand": "cd frontend && npm install && npm run build"
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/build/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
   }
 } 
