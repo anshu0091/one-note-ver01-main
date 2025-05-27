@@ -1,6 +1,6 @@
 const config = {
-  apiUrl: process.env.NODE_ENV === 'production' 
-    ? 'https://one-note-main-02.vercel.app/api'  // Replace with your actual Vercel deployment URL
+  apiUrl: process.env.NODE_ENV === 'production'
+    ? 'https://bespoke-gaufre-80aa97.netlify.app/.netlify/functions/api'
     : 'http://localhost:5000/api'
 };
 
